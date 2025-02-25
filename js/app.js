@@ -17,7 +17,6 @@ var classIcon = document.querySelector("img")
 
 async function getWeather(latitude,longitude){
     try {
-        //TODO: ADD HUMIDITY
         //TODO: Fix Color Scheme
         //TODO: FIX PHONE APP ICONS
         // https://api.open-meteo.com/v1/forecast?latitude=36.1628&longitude=-85.5016&current=temperature_2m,relative_humidity_2m,weather_code&daily=sunrise,sunset,uv_index_max&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=America%2FChicago

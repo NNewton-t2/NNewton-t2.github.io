@@ -1,6 +1,6 @@
 {
-  "name": "Weather App",
-  "short_name": "D.A.M.E.S",
+  "name": "Drifter's G.A.M.B.I.T",
+  "short_name": "G.A.M.B.I.T",
   "start_url": "https://nnewton-t2.github.io/",
   "display": "standalone",
   "background_color": "#ffffff",
@@ -18,3 +18,4 @@
     }
   ]
 }
+  

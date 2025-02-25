@@ -1,7 +1,5 @@
 // Start GLobal Variables
-//need regex for City
-//const regEmail = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
-const strBaseWeatherURL = 'https://open-meteo.com/v1/forecast'
+const strBaseWeatherURL = 'https://api.open-meteo.com/v1/forecast?'
 const strBaseLocationURL = 'https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API'
 const defaultLat = 36.1628
 const defaultLong = -85.5016
@@ -11,7 +9,7 @@ const guardianClass = ''
 
 async function getWeather(latitude,longitude){
     try {
-        const callURL = `${strBaseWeatherURL}?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m&current_weather=true`;
+        const callURL = `${strBaseWeatherURL}latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m&timezone=America%2FChicago`;
 
         const objResponse = await fetch(callURL, {
             method: 'GET', 
@@ -72,6 +70,9 @@ async function getWeather(latitude,longitude){
 document.querySelector("#findMe").addEventListener("click", geoFindMe);
 
 function geoFindMe() { 
+    
+    // https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=temperature_2m&timezone=America%2FChicago
+    const timeZone = 'America%2FChicago'
     //get class
     const guardianClass = document.querySelector('#menuClassSelection').value
     console.log(guardianClass)
@@ -132,5 +133,7 @@ document.querySelector('#btnOptions').addEventListener('click', function(){
     document.querySelector('#frmWeatherOptions').style.display = 'block'
     document.querySelector('#divHomepage').style.display = 'none' 
 })
+
+// End click handlers
 
 // End click handlers

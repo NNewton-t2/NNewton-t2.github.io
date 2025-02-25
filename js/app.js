@@ -9,7 +9,8 @@ const guardianClass = ''
 
 async function getWeather(latitude,longitude){
     try {
-        const callURL = `${strBaseWeatherURL}latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m&timezone=America%2FChicago`;
+        // https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m&daily=sunrise,sunset&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=America%2FChicago
+        const callURL = `${strBaseWeatherURL}latitude=${latitude}&longitude=${longitude}&current=temperature_2m&daily=sunrise,sunset&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=America%2FChicago`;
         
         console.log(callURL)
 
@@ -24,45 +25,18 @@ async function getWeather(latitude,longitude){
 
         const objData = await objResponse.json()
         
-        if(objData.current_weather){
-            //Sweetalert for success
-            // Swal.fire({
-            //     position: "top-end",
-            //     icon:"success",
-            //     title:"Retrieval Successful",
-            //     showConfirmButton: false,
-            //     timer: 1500
-            // })
+        if(objData.latitude){
 
         console.log("Completed Call to Weather API")
 
         // Extract weather data
-        const temperature = objData.current_weather.temperature;
-        const windSpeed = objData.current_weather.windspeed;
-        const weatherCode = objData.current_weather.weathercode;
+        const temperature = objData.current.temperature_2m;
+        console.log("Completed Call to Weather API:"+temperature)
 
-        // Create a readable message
-        const weatherHTML = `
-            <h2 class="text-center text-info">Current Weather</h2>
-            <p><strong>Temperature:</strong> ${temperature}°C</p>
-            <p><strong>Wind Speed:</strong> ${windSpeed} km/h</p>
-            <p><strong>Weather Code:</strong> ${weatherCode}</p>
-        `;
-
-        // Display the data inside `divHomepage`
-        document.querySelector("#divHomepage .card-body").innerHTML += weatherHTML;
-
+        
         } else {
-            //Sweetalert for failure
-            // Swal.fire({
-            //     position: "top-end",
-            //     icon:"error",
-            //     title:"Retrieval Failed",
-            //     showConfirmButton: false,
-            //     timer: 1500
-            // })
+            console.log(objData)
             console.log("ERROR! Couldn't call Weather API")
-
         }
     } catch(objError){
         console.log('Error fetching objData',objError)

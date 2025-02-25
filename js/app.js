@@ -8,6 +8,7 @@ var globalTemperature = ''
 var globalSunriseTime = ''
 var globalSunsetTime = ''
 var globalElevation = ''
+var globalHumidity = ''
 
 var classIcon = document.querySelector("img")
 console.log(classIcon)
@@ -19,8 +20,8 @@ async function getWeather(latitude,longitude){
         //TODO: ADD HUMIDITY
         //TODO: Fix Color Scheme
         //TODO: FIX PHONE APP ICONS
-        // https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m&daily=sunrise,sunset&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=America%2FChicago
-        const callURL = `${strBaseWeatherURL}latitude=${latitude}&longitude=${longitude}&current=temperature_2m&daily=sunrise,sunset&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=America%2FChicago`;
+        // https://api.open-meteo.com/v1/forecast?latitude=36.1628&longitude=-85.5016&current=temperature_2m,relative_humidity_2m,weather_code&daily=sunrise,sunset,uv_index_max&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=America%2FChicago
+        const callURL = `${strBaseWeatherURL}latitude=${latitude}&longitude=${longitude}&current=temperature_2m,relative_humidity_2m,weather_code&daily=sunrise,sunset,uv_index_max&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=America%2FChicago`;
         
         console.log(callURL)
 
@@ -56,10 +57,14 @@ async function getWeather(latitude,longitude){
         globalTemperature = temperature + objData.current_units.temperature_2m
         console.log(globalTemperature)
 
+        globalHumidity = objData.current.relative_humidity_2m + objData.current_units.relative_humidity_2m
+        console.log(globalHumidity)
+
         document.querySelector("#temperature").textContent = globalTemperature
-        document.querySelector("#sunrise").textContent = globalSunriseTime
-        document.querySelector("#sunset").textContent = globalSunsetTime
+        document.querySelector("#sunrise").textContent = globalSunriseTime.substring(11, 16)
+        document.querySelector("#sunset").textContent = globalSunsetTime.substring(11, 16)
         document.querySelector("#elevation").textContent= globalElevation + " Feet"
+        document.querySelector('#humidity').textContent = globalHumidity
 
         } else {
             console.log(objData)

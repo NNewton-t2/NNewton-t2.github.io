@@ -10,6 +10,7 @@ const guardianClass = ''
 async function getWeather(latitude,longitude){
     try {
         const callURL = `${strBaseWeatherURL}latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m&timezone=America%2FChicago`;
+        console.log(callURL)
 
         const objResponse = await fetch(callURL, {
             method: 'GET', 

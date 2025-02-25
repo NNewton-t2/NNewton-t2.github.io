@@ -11,7 +11,7 @@ var globalElevation = ''
 var globalHumidity = ''
 
 var classIcon = document.querySelector("img")
-console.log(classIcon)
+//console.log(classIcon)
 
 // End Global Variables
 

@@ -10,6 +10,7 @@ const guardianClass = ''
 async function getWeather(latitude,longitude){
     try {
         const callURL = `${strBaseWeatherURL}latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m&timezone=America%2FChicago`;
+        
         console.log(callURL)
 
         const objResponse = await fetch(callURL, {
@@ -32,8 +33,9 @@ async function getWeather(latitude,longitude){
             //     showConfirmButton: false,
             //     timer: 1500
             // })
-            console.log("Completed Call to Weather API")
-            
+
+        console.log("Completed Call to Weather API")
+
         // Extract weather data
         const temperature = objData.current_weather.temperature;
         const windSpeed = objData.current_weather.windspeed;
@@ -52,13 +54,15 @@ async function getWeather(latitude,longitude){
 
         } else {
             //Sweetalert for failure
-            Swal.fire({
-                position: "top-end",
-                icon:"error",
-                title:"Retrieval Failed",
-                showConfirmButton: false,
-                timer: 1500
-            })
+            // Swal.fire({
+            //     position: "top-end",
+            //     icon:"error",
+            //     title:"Retrieval Failed",
+            //     showConfirmButton: false,
+            //     timer: 1500
+            // })
+            console.log("ERROR! Couldn't call Weather API")
+
         }
     } catch(objError){
         console.log('Error fetching objData',objError)
@@ -135,7 +139,5 @@ document.querySelector('#btnOptions').addEventListener('click', function(){
     document.querySelector('#frmWeatherOptions').style.display = 'block'
     document.querySelector('#divHomepage').style.display = 'none' 
 })
-
-// End click handlers
 
 // End click handlers

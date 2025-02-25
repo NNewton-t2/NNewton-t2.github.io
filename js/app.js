@@ -1,9 +1,14 @@
 // Start GLobal Variables
 const strBaseWeatherURL = 'https://api.open-meteo.com/v1/forecast?'
-const strBaseLocationURL = 'https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API'
+//const strBaseLocationURL = 'https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API'
 const defaultLat = 36.1628
 const defaultLong = -85.5016
 const guardianClass = ''
+
+var globalTemperature = ''
+var globalSunriseTime = ''
+var globalSunsetTime = ''
+var globalElevation = ''
 
 // End Global Variables
 
@@ -31,9 +36,26 @@ async function getWeather(latitude,longitude){
 
         // Extract weather data
         const temperature = objData.current.temperature_2m;
-        console.log("Completed Call to Weather API:"+temperature)
+        console.log("Completed Call to Weather API:"+temperature+objData.current_units.temperature_2m)
 
-        
+        //write to Global variables
+        globalElevation = objData.elevation
+        console.log(globalElevation)
+
+        globalSunriseTime = objData.daily.sunrise[0]
+        console.log(globalSunriseTime)
+
+        globalSunsetTime = objData.daily.sunset[0]
+        console.log(globalSunsetTime)
+
+        globalTemperature = temperature + objData.current_units.temperature_2m
+        console.log(globalTemperature)
+
+        document.querySelector("#temperature").textContent = globalTemperature
+        document.querySelector("#sunrise").textContent = globalSunriseTime
+        document.querySelector("#sunset").textContent = globalSunsetTime
+        document.querySelector("#elevation").textContent= globalElevation + " Feet"
+
         } else {
             console.log(objData)
             console.log("ERROR! Couldn't call Weather API")
@@ -57,6 +79,21 @@ function geoFindMe() {
     const guardianClass = document.querySelector('#menuClassSelection').value
     console.log(guardianClass)
       
+    switch (guardianClass) {
+        case 'Hunter':
+            console.log("Display Hunter Icon")
+            break;
+        case 'Warlock':
+            console.log("Display Warlock Icon")
+            break;
+        case 'Titan':
+            console.log("Display Titan Icon")
+            break;
+
+        default:
+            console.log("Display Traveller Icon")
+    }
+    
     const status = document.querySelector("#status");
   
     function success(position) {
@@ -95,10 +132,43 @@ document.querySelector('#btnSkip').addEventListener('click', function(){
     //get class
     const guardianClass = document.querySelector('#menuClassSelection').value
     console.log(guardianClass)
+    switch (guardianClass) {
+        case 'Hunter':
+            console.log("Display Hunter Icon")
+            break;
+        case 'Warlock':
+            console.log("Display Warlock Icon")
+            break;
+        case 'Titan':
+            console.log("Display Titan Icon")
+            break;
+
+        default:
+            console.log("Display Traveller Icon")
+    }
     
     //Weather API call?
     getWeather(defaultLat, defaultLong)
     
+
+
+// Function to update the weather display fields
+function updateWeatherDisplay() {
+    // Update the temperature field
+    document.getElementById("temperature").textContent = temperature;
+
+    // Update the sunrise field
+    document.getElementById("sunrise").textContent = sunriseTime;
+
+    // Update the sunset field
+    document.getElementById("sunset").textContent = sunsetTime;
+
+    // Update the elevation field
+    document.getElementById("elevation").textContent = elevation;
+}
+
+// Call the function to populate data when your app is ready
+updateWeatherDisplay();
     // Swap screens
     document.querySelector('#frmWeatherOptions').style.display = 'none'
     document.querySelector('#divHomepage').style.display = 'block'    

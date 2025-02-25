@@ -172,8 +172,6 @@ document.querySelector('#btnSkip').addEventListener('click', function(){
     document.querySelector('#frmWeatherOptions').style.display = 'none'
     document.querySelector('#divHomepage').style.display = 'block'    
 
-
-
 })
 
 // click event for btnOptions - to go to options page

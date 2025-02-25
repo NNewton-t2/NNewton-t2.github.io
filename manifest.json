@@ -7,9 +7,10 @@
     "theme_color": "#000000",
     "icons": [
       {
-        "src": "HW3-NNewton/traveller.svg",
-        "type": "image/png"
+        "src": "traveller.svg",
+        "type": "image/svg"
       }
     ]
   }
+  
   

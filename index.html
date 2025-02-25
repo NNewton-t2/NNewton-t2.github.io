@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/pulse/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-dark">
+    <div class="d-flex justify-content-center align-items-center vh-100">
+        <form class="card col-12 col-md-5 col-lg-4" id="crdWeatherDisplay">
+            <div class="card-body">
+                <h1 class="text-center mb-0 text-primary">Electronic Medical Record (EMR)</h1>
+                <div class="d-flex justify-content-center">
+                    <img src="destiny.svg" alt="Abstract Site Logo" style="max-width: 10%;">
+                </div>
+                <h3 class="text-center mb-4"> Registration </h3>
+
+                <label for="txtUsername" aria-label="txtUsernameEntry">Username:</label><br>
+                <input id="txtUsername" class="form-control mt-1" type="email" placeholder="swollenhippo@gmail.com" aria-label="txtUsername">
+                
+                <label for="txtPassword" aria-label="txtPasswordEntry" class="form-label mt-3">Password:</label><br>
+                <input id="txtPassword" class="form-control mt-1" type="password" placeholder="password" aria-label="txtPassword">
+                
+                <label for="txtFirstName" aria-label="txtNameEntry" class="form-label mt-3">Full Name:</label><br>
+                <input id="txtFirstName" class="form-control mt-1" type="text" placeholder="Chris" aria-label="txtFirstName">
+                <input id="txtMiddleName" class="form-control mt-1" type="text" placeholder="Whitelaw" aria-label="txtMiddleName">
+                <input id="txtLastName" class="form-control mt-1" type="text" placeholder="Pine" aria-label="txtLastName">
+
+                <label for="txtStreetAddress1" aria-label="txtAddressEntry" class="form-label mt-3">Full Address:</label><br>
+                <input id="txtStreetAddress1" class="form-control mt-1" type="text" placeholder="Address Line 1" aria-label="txtStreetAddress1">
+                <input id="txtStreetAddress2" class="form-control mt-1" type="text" placeholder="Address Line 2" aria-label="txtStreetAddress2">
+                <input id="txtCity" class="form-control mt-1" type="text" placeholder="City" aria-label="txtCity">
+                <input id="txtState" class="form-control mt-1" type="text" placeholder="State" aria-label="txtState">
+                <input id="txtZIP" class="form-control mt-1" type="number" placeholder="ZIP Code" aria-label="txtZIP">
+                
+                <label for="txtPhoneNumber" aria-label="txtPhoneNumberEntry" class="form-label mt-3">Phone Number:</label><br>
+                <input id="txtPhoneNumber" class="form-control mt-1" type="tel" placeholder="505-842-4205" aria-label="txtPhoneNumber">
+                </select>
+                <hr />
+                <button class="btn btn-primary col-12 mt-2" type="button" id="btnLogin">Log In</button>
+            </div>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html> 

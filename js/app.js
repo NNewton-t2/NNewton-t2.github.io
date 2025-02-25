@@ -1,6 +1,5 @@
 // Start GLobal Variables
 const strBaseWeatherURL = 'https://api.open-meteo.com/v1/forecast?'
-//const strBaseLocationURL = 'https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API'
 const defaultLat = 36.1628
 const defaultLong = -85.5016
 const guardianClass = ''
@@ -17,6 +16,9 @@ console.log(classIcon)
 
 async function getWeather(latitude,longitude){
     try {
+        //TODO: ADD HUMIDITY
+        //TODO: Fix Color Scheme
+        //TODO: FIX PHONE APP ICONS
         // https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m&daily=sunrise,sunset&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=America%2FChicago
         const callURL = `${strBaseWeatherURL}latitude=${latitude}&longitude=${longitude}&current=temperature_2m&daily=sunrise,sunset&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=America%2FChicago`;
         

@@ -10,6 +10,9 @@ var globalSunriseTime = ''
 var globalSunsetTime = ''
 var globalElevation = ''
 
+var classIcon = document.querySelector("img")
+console.log(classIcon)
+
 // End Global Variables
 
 async function getWeather(latitude,longitude){
@@ -74,6 +77,7 @@ document.querySelector("#findMe").addEventListener("click", geoFindMe);
 function geoFindMe() { 
     
     // https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=temperature_2m&timezone=America%2FChicago
+    //change to be dyamic time zone
     const timeZone = 'America%2FChicago'
     //get class
     const guardianClass = document.querySelector('#menuClassSelection').value
@@ -81,16 +85,20 @@ function geoFindMe() {
       
     switch (guardianClass) {
         case 'Hunter':
+            classIcon.src = 'class-hunter-proportional.svg'
             console.log("Display Hunter Icon")
             break;
         case 'Warlock':
+            classIcon.src = 'class-warlock-proportional.svg'
             console.log("Display Warlock Icon")
             break;
         case 'Titan':
+            classIcon.src = 'class-titan-proportional.svg'
             console.log("Display Titan Icon")
             break;
 
         default:
+            classIcon.src = 'traveller.svg'
             console.log("Display Traveller Icon")
     }
     
@@ -134,41 +142,26 @@ document.querySelector('#btnSkip').addEventListener('click', function(){
     console.log(guardianClass)
     switch (guardianClass) {
         case 'Hunter':
+            classIcon.src = 'class-hunter-proportional.svg'
             console.log("Display Hunter Icon")
             break;
         case 'Warlock':
+            classIcon.src = 'class-warlock-proportional.svg'
             console.log("Display Warlock Icon")
             break;
         case 'Titan':
+            classIcon.src = 'class-titan-proportional.svg'
             console.log("Display Titan Icon")
             break;
 
         default:
+            classIcon.src = 'traveller.svg'
             console.log("Display Traveller Icon")
     }
     
     //Weather API call?
     getWeather(defaultLat, defaultLong)
-    
 
-
-// Function to update the weather display fields
-function updateWeatherDisplay() {
-    // Update the temperature field
-    document.getElementById("temperature").textContent = temperature;
-
-    // Update the sunrise field
-    document.getElementById("sunrise").textContent = sunriseTime;
-
-    // Update the sunset field
-    document.getElementById("sunset").textContent = sunsetTime;
-
-    // Update the elevation field
-    document.getElementById("elevation").textContent = elevation;
-}
-
-// Call the function to populate data when your app is ready
-updateWeatherDisplay();
     // Swap screens
     document.querySelector('#frmWeatherOptions').style.display = 'none'
     document.querySelector('#divHomepage').style.display = 'block'    

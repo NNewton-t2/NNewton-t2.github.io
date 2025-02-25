@@ -25,14 +25,15 @@ async function getWeather(latitude,longitude){
         
         if(objData.current_weather){
             //Sweetalert for success
-            Swal.fire({
-                position: "top-end",
-                icon:"success",
-                title:"Retrieval Successful",
-                showConfirmButton: false,
-                timer: 1500
-            })
-            //Save the data to the app 
+            // Swal.fire({
+            //     position: "top-end",
+            //     icon:"success",
+            //     title:"Retrieval Successful",
+            //     showConfirmButton: false,
+            //     timer: 1500
+            // })
+            console.log("Completed Call to Weather API")
+            
         // Extract weather data
         const temperature = objData.current_weather.temperature;
         const windSpeed = objData.current_weather.windspeed;

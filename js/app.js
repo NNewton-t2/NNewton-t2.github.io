@@ -82,8 +82,7 @@ document.querySelector("#findMe").addEventListener("click", geoFindMe);
 
 function geoFindMe() { 
     
-    // https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=temperature_2m&timezone=America%2FChicago
-    //change to be dyamic time zone
+    //TODO: change to be dyamic time zone
     const timeZone = 'America%2FChicago'
     //get class
     const guardianClass = document.querySelector('#menuClassSelection').value

@@ -7,9 +7,9 @@
   "theme_color": "#0f00ff",
   "icons": [
     {
-      "src": "traveller.svg", 
+      "src": "traveller_256x251.png", 
       "sizes": "512x512", 
-      "type": "image/svg"
+      "type": "image/png"
     }
   ]
 }

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!-- GITHUB PAGES HOSTED SITE CAN BE FOUND AT THIS URL: https://nnewton-t2.github.io/ -->
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -40,7 +42,7 @@
                                             
                 <button aria-label="Use Current Location Button" class="btn btn-primary col-12 mt-3" type="button" id="findMe" >Use my current location</button><br />
                 <p id="status"></p>
-                <button aria-label="Use Default Location (Cookeville) button" class="btn btn-primary col-12 mt-3" type="button" id="btnSkip">Use Default Location (Cookeville)</button>
+                <button aria-label="Use Default Location (Cookeville) button" class="btn btn-primary col-12 mt-3" type="button" id="btnSkip">Use Default Location</button>
             </div>
         </form>
 
@@ -48,14 +50,14 @@
         <form class="card bg-success bg-opacity-60 col-12 col-md-5 col-lg-4" id="divHomepage" style='display:none;'>
             <div class="card-body">
                 <div class="d-flex justify-content-center">
-                    <img src="traveller.svg" class="mt-2" alt="Abstract Site Logo" style="max-width: 30%;">
+                    <img src="gambit.svg" class="mt-2" alt="Abstract Site Logo" style="max-width: 30%;">
                 </div>
                 <h1 class="text-center mb-3 " id="homepageHeader">Drifter's Personalized G.A.M.B.I.T </h1>
 
                 <!-- Weather Data Display -->
                 <div class="row mb-3">
                     <div class="col-12">
-                        <h5 class="text-center fw-bold text-info" id="temperature-title">
+                        <h5 class="text-center fw-bold text-info" id="temperature-title" aria-label="temperature">
                             <i class="bi bi-thermometer-half mr-2"></i> Temperature
                         </h5>
                         <p id="temperature" class="text-center">Loading...</p>
@@ -64,7 +66,7 @@
 
                 <div class="row mb-3">
                     <div class="col-12">
-                        <h5 class="text-center fw-bold text-info" id="sunrise-title">
+                        <h5 class="text-center fw-bold text-info" id="sunrise-title" aria-label="sunrise time">
                             <i class="bi bi-sunrise mr-2"></i> Sunrise
                         </h5>
                         <p id="sunrise" class="text-center">Loading...</p>
@@ -73,7 +75,7 @@
 
                 <div class="row mb-3">
                     <div class="col-12">
-                        <h5 class="text-center fw-bold text-info" id="sunset-title">
+                        <h5 class="text-center fw-bold text-info" id="sunset-title" aria-label="sunset time">
                             <i class="bi bi-sunset mr-2"></i> Sunset
                         </h5>
                         <p id="sunset" class="text-center">Loading...</p>
@@ -82,7 +84,7 @@
 
                 <div class="row mb-3">
                     <div class="col-12">
-                        <h5 class="text-center fw-bold text-info" id="elevation-title">
+                        <h5 class="text-center fw-bold text-info" id="elevation-title" aria-label="elevation">
                             <i class="bi bi-geo-alt mr-2"></i> Elevation
                         </h5>
                         <p id="elevation" class="text-center">Loading...</p>
@@ -91,12 +93,13 @@
 
                 <div class="row mb-3">
                     <div class="col-12">
-                        <h5 class="text-center fw-bold text-info" id="humidity-title">
+                        <h5 class="text-center fw-bold text-info" id="humidity-title" aria-label="humidity">
                             <i class="bi bi-moisture mr-2"></i> Humidity
                         </h5>
                         <p id="humidity" class="text-center">Loading...</p>
                     </div>
                 </div>
+                <p class="bt-4 text-center"> Data courtesy of Open-Meteo API </p>
 
 
                 <button class="btn btn-primary col-12 mt-2" type="button" id="btnOptions" aria-label="Access options menu">Options</button>

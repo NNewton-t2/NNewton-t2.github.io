@@ -7,8 +7,8 @@
   "theme_color": "#0f00ff",
   "icons": [
     {
-      "src": "traveller_256x251.png", 
-      "sizes": "196x192", 
+      "src": "blocker.png", 
+      "sizes": "192x192", 
       "type": "image/png"
     }
   ]

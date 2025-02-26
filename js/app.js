@@ -1,4 +1,4 @@
-// Start GLobal Variables
+// Start Global Variables
 const strBaseWeatherURL = 'https://api.open-meteo.com/v1/forecast?'
 const defaultLat = 36.1628
 const defaultLong = -85.5016
@@ -11,15 +11,11 @@ var globalElevation = ''
 var globalHumidity = ''
 
 var classIcon = document.querySelector("img")
-//console.log(classIcon)
 
 // End Global Variables
 
 async function getWeather(latitude,longitude){
     try {
-        //TODO: Fix Color Scheme
-        //TODO: FIX PHONE APP ICONS
-        // https://api.open-meteo.com/v1/forecast?latitude=36.1628&longitude=-85.5016&current=temperature_2m,relative_humidity_2m,weather_code&daily=sunrise,sunset,uv_index_max&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=America%2FChicago
         const callURL = `${strBaseWeatherURL}latitude=${latitude}&longitude=${longitude}&current=temperature_2m,relative_humidity_2m,weather_code&daily=sunrise,sunset,uv_index_max&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=America%2FChicago`;
         
         console.log(callURL)
@@ -82,7 +78,8 @@ document.querySelector("#findMe").addEventListener("click", geoFindMe);
 
 function geoFindMe() { 
     
-    //TODO: change to be dyamic time zone
+    document.querySelector("#homepageHeader").textContent = "Drifter's Personalized G.A.M.B.I.T";
+
     const timeZone = 'America%2FChicago'
     //get class
     const guardianClass = document.querySelector('#menuClassSelection').value

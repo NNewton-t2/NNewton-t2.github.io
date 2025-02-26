@@ -143,6 +143,7 @@ function geoFindMe() {
 // click event for btnSkip - get's cookeville's weather - skips location input
 document.querySelector('#btnSkip').addEventListener('click', function(){
     //get class
+    document.querySelector("#homepageHeader").textContent = "Cookeville's G.A.M.B.I.T";
     const guardianClass = document.querySelector('#menuClassSelection').value
     console.log(guardianClass)
     switch (guardianClass) {
